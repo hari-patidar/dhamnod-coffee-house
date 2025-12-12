@@ -1,0 +1,353 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#83977c"/>
+    <title>DCH Cafe UI Mockup</title>
+    
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkRFSENhZmUiLAogICJzaG9ydF9uYW1lIjogIkRFSENhZmUiLAogICJkZXNjcmlwdGlvbiI6ICJUaGhvZmZpY2lhbGxtZW51YW5kIG9yZGVyaW5nIGFwcCBmb3IgREhDCF", style="display: none;">
+
+    <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+
+<div id="toast-container">
+    <div id="item-toast" class="toast"></div>
+</div>
+
+<div id="home-page" class="page" style="display: block;">
+  <header class="header">
+    <h1 class="cafe-title">DCH Cafe</h1>
+    <button class="nav-button" onclick="showMenu()">View Menu</button>
+  </header>
+
+  <main class="content-area home-content">
+    <h2 class="section-title">Welcome to Our Family Table</h2>
+    <p class="cafe-brief">
+      Nestled in the heart of the community, DCH Cafe is dedicated to crafting delightful experiences. We serve freshly brewed coffee, homemade treats, and wholesome food, all made with love for your family.
+    </p>
+    
+    <div style="text-align: center; margin-bottom: 25px; padding: 10px; background-color: #f0ebe0; border-radius: 8px;">
+        <h3 style="font-size: 1.2rem; margin: 0 0 5px; color: var(--color-dark-sage);">Hours of Operation</h3>
+        <p style="margin: 0;">Monday - Saturday: 9:00 AM - 9:00 PM</p>
+        <p style="margin: 0;">Sunday: 10:00 AM - 7:00 PM</p>
+    </div>
+    
+    <div class="image-placeholder" style="background-color: var(--color-sage); padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h3 style="color: white; font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 5px;">🌟 Today's Special 🌟</h3>
+        <h4 style="color: white; font-family: var(--font-title); font-size: 2.5rem; margin-top: 5px;">The Grill Paneer Special!</h4>
+        <p style="color: white; font-size: 1.1rem; text-align: center; max-width: 400px;">A fan-favorite grilled sandwich loaded with paneer, spices, and a special chutney.</p>
+        <button class="nav-button" style="background-color: var(--color-espresso); margin-top: 15px;" onclick="showMenu(); showCategory('sandwiches', document.getElementById('btn-sandwiches'))">Order Now</button>
+    </div>
+
+  </main>
+</div>
+
+<div id="menu-page" class="page" style="display: none;">
+  <header class="header">
+    <h1 class="cafe-title">Our Delicious Menu</h1>
+    <div class="nav-actions">
+        <div class="cart-container">
+            <button class="cart-button" onclick="showCart()">🛒</button>
+            <span id="cart-count">0</span>
+        </div>
+        <button class="nav-button" onclick="showHome()">Home</button>
+    </div>
+  </header>
+
+  <main class="content-area menu-content">
+    <p class="cafe-brief">
+      Explore our wide selection of fresh food and delightful beverages. Tap a category below to browse items and add them to your order.
+    </p>
+
+    <div id="category-buttons" class="category-grid">
+        <button id="btn-sandwiches" class="category-button" onclick="showCategory('sandwiches', this)" tabindex="0">
+          <span class="category-icon">🥪</span>
+          <span class="category-name">Sandwiches</span>
+        </button>
+        <button id="btn-pizza" class="category-button" onclick="showCategory('pizza', this)" tabindex="0">
+          <span class="category-icon">🍕</span>
+          <span class="category-name">Pizza</span>
+        </button>
+        <button id="btn-burger" class="category-button" onclick="showCategory('burger', this)" tabindex="0">
+            <span class="category-icon">🍔</span>
+            <span class="category-name">Burger</span>
+        </button>
+        <button id="btn-pasta" class="category-button" onclick="showCategory('pasta', this)" tabindex="0">
+            <span class="category-icon">🍝</span>
+            <span class="category-name">Pasta</span>
+        </button>
+        <button id="btn-chinese" class="category-button" onclick="showCategory('chinese', this)" tabindex="0">
+            <span class="category-icon">🥡</span>
+            <span class="category-name">Chinese</span>
+        </button>
+        <button id="btn-fries" class="category-button" onclick="showCategory('fries', this)" tabindex="0">
+            <span class="category-icon">🍟</span>
+            <span class="category-name">Fries</span>
+        </button>
+        <button id="btn-barbeque" class="category-button" onclick="showCategory('barbeque', this)" tabindex="0">
+            <span class="category-icon">🍢</span>
+            <span class="category-name">Barbeque</span>
+        </button>
+        <button id="btn-momos" class="category-button" onclick="showCategory('momos', this)" tabindex="0">
+            <span class="category-icon">🥟</span>
+            <span class="category-name">Momos</span>
+        </button>
+        <button id="btn-maggi" class="category-button" onclick="showCategory('maggi', this)" tabindex="0">
+            <span class="category-icon">🍜</span>
+            <span class="category-name">Maggi</span>
+        </button>
+        <button id="btn-tea" class="category-button" onclick="showCategory('tea', this)" tabindex="0">
+            <span class="category-icon">🍵</span>
+            <span class="category-name">Tea</span>
+        </button>
+        <button id="btn-shakes" class="category-button" onclick="showCategory('shakes', this)" tabindex="0">
+            <span class="category-icon">🥛</span>
+            <span class="category-name">Shakes</span
+        ></button>
+        <button id="btn-dch_specials" class="category-button" onclick="showCategory('dch_specials', this)" tabindex="0">
+            <span class="category-icon">🧇</span>
+            <span class="category-name">DCH Specials</span>
+        </button>
+        <button id="btn-coffee" class="category-button" onclick="showCategory('coffee', this)" tabindex="0">
+            <span class="category-icon">☕</span>
+            <span class="category-name">Hot Coffee</span>
+        </button>
+        <button id="btn-cold_coffee" class="category-button" onclick="showCategory('cold_coffee', this)" tabindex="0">
+            <span class="category-icon">🧊</span>
+            <span class="category-name">Cold Coffee</span>
+        </button>
+        <button id="btn-mocktails" class="category-button" onclick="showCategory('mocktails', this)" tabindex="0">
+            <span class="category-icon">🍹</span>
+            <span class="category-name">Mocktails</span>
+        </button>
+        <button id="btn-shots" class="category-button" onclick="showCategory('shots', this)" tabindex="0">
+            <span class="category-icon">🥃</span>
+            <span class="category-name">Shots</span>
+        </button>
+    </div>
+
+    <div id="sandwiches-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Sandwiches</h3>
+        <div class="menu-item-card">
+            <div class="item-details"><div class="item-name">Bread Butter</div><div class="item-desc">Classic slice of bread with a generous layer of butter.</div></div>
+            <div class="item-price">₹30</div>
+            <div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Bread Butter', 30)">Add to Order</button></div>
+        </div>
+        <div class="menu-item-card">
+            <div class="item-details"><div class="item-name">Bombay Masala</div><div class="item-desc">Spicy potato filling with mint and sweet chutney.</div></div>
+            <div class="item-price">₹40</div>
+            <div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Bombay Masala', 40)">Add to Order</button></div>
+        </div>
+        <div class="menu-item-card">
+            <div class="item-details"><div class="item-name">Masala Cheese</div><div class="item-desc">A spicy blend of masala and melted cheese, grilled.</div></div>
+            <div class="item-price">₹70</div>
+            <div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Masala Cheese', 70)">Add to Order</button></div>
+        </div>
+        <div class="menu-item-card">
+            <div class="item-details"><div class="item-name">Cheese Chutney</div><div class="item-desc">Layered with fresh cilantro chutney and a slice of cheese.</div></div>
+            <div class="item-price">₹80</div>
+            <div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Cheese Chutney', 80)">Add to Order</button></div>
+        </div>
+        <div class="menu-item-card">
+            <div class="item-details"><div class="item-name">Vegetable</div><div class="item-desc">Loaded with fresh cucumber, tomato, onion, and mint chutney.</div></div>
+            <div class="item-price">₹80</div>
+            <div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Vegetable', 80)">Add to Order</button></div>
+        </div>
+        <div class="menu-item-card">
+            <div class="item-details"><div class="item-name">Vegetable Cheese</div><div class="item-desc">Fresh veggies, cheese, and special creamy dressing.</div></div>
+            <div class="item-price">₹100</div>
+            <div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Vegetable Cheese', 100)">Add to Order</button></div>
+        </div>
+        <div class="menu-item-card">
+            <div class="item-details"><div class="item-name">Cheese Corn</div><div class="item-desc">Sweet corn, gooey cheese, and mild spices.</div></div>
+            <div class="item-price">₹120</div>
+            <div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Cheese Corn', 120)">Add to Order</button></div>
+        </div>
+        <div class="menu-item-card">
+            <div class="item-details"><div class="item-name">Grill Paneer Special</div><div class="item-desc">Our special grilled sandwich loaded with paneer cubes and tikka seasoning.</div></div>
+            <div class="item-price">₹150</div>
+            <div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Grill Paneer Special', 150)">Add to Order</button></div>
+        </div>
+    </div>
+
+    <div id="pizza-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Pizza</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Single Topping</div><div class="item-desc">Base pizza with your choice of one veggie topping (Onion/Capsicum/Tomato).</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Single Topping', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Cheese Corn</div><div class="item-desc">Loaded with sweet corn kernels and extra mozzarella cheese.</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Cheese Corn Pizza', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Classic Cheese</div><div class="item-desc">Simple, delicious marinara sauce and a blend of classic cheeses.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Classic Cheese', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Veg Farm House</div><div class="item-desc">Topped with bell peppers, onions, tomatoes, and mushrooms.</div></div><div class="item-price">₹200</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Veg Farm House', 200)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Paneer Tandoori</div><div class="item-desc">Paneer marinated in tandoori spices with capsicum and onion.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Paneer Tandoori', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Double Cheese</div><div class="item-desc">For the cheese lover: double layer of premium mozzarella and cheddar.</div></div><div class="item-price">₹200</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Double Cheese', 200)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Paneer Tikka</div><div class="item-desc">Classic tikka flavor with smoky paneer cubes and veggies.</div></div><div class="item-price">₹200</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Paneer Tikka Pizza', 200)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Tandoori Topping</div><div class="item-desc">A spicy, fully loaded pizza with tandoori mayo base and various veggies.</div></div><div class="item-price">₹350</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Tandoori Topping', 350)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Jain (After 6 PM IST)</div><div class="item-desc">Made without onion, garlic, or root vegetables. Available after 6 PM IST.</div></div><div class="item-price">₹130</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Jain (After 6 PM IST)', 130)">Add to Order</button></div></div>
+    </div>
+
+    <div id="burger-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Burger</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Veg</div><div class="item-desc">Classic vegetable patty with fresh lettuce, tomato, and mayo.</div></div><div class="item-price">₹60</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Veg Burger', 60)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Veg Cheese</div><div class="item-desc">Classic vegetable patty topped with a slice of melted cheese.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Veg Cheese Burger', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Aloo Tikki</div><div class="item-desc">Crispy and flavorful potato patty with special sauces.</div></div><div class="item-price">₹70</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Aloo Tikki', 70)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Tandoori</div><div class="item-desc">Patty marinated in Tandoori spices with smoky mayo.</div></div><div class="item-price">₹90</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Tandoori Burger', 90)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Paneer</div><div class="item-desc">Large, seasoned paneer patty with fresh toppings and rich sauce.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Paneer Burger', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Paneer Cheese</div><div class="item-desc">Seasoned paneer patty topped with melted cheese.</div></div><div class="item-price">₹110</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Paneer Cheese Burger', 110)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Mexican</div><div class="item-desc">Spicy Mexican patty with jalapenos, salsa, and crunchy lettuce.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Mexican Burger', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Mexican Cheese</div><div class="item-desc">Our Mexican specialty with a generous layer of cheese sauce.</div></div><div class="item-price">₹130</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Mexican Cheese Burger', 130)">Add to Order</button></div></div>
+    </div>
+
+    <div id="pasta-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Pasta</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Penne Arrabbiata</div><div class="item-desc">Pasta tossed in spicy tomato sauce with Italian herbs. (Red Sauce)</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Penne Arrabbiata', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Penne Alfredo (White Sauce)</div><div class="item-desc">Creamy, rich white sauce pasta with cheese and bell peppers.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Penne Alfredo (White Sauce)', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Mac & Cheese</div><div class="item-desc">Classic macaroni pasta baked in a rich blend of cheeses.</div></div><div class="item-price">₹130</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Mac & Cheese', 130)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Spaghetti</div><div class="item-desc">Thin pasta strands tossed in your choice of sauce (please specify).</div></div><div class="item-price">₹140</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Spaghetti', 140)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Ravioli</div><div class="item-desc">Stuffed pasta pockets served with a savory tomato cream sauce.</div></div><div class="item-price">₹220</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Ravioli', 220)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Green Sauce (Side)</div><div class="item-desc">Our homemade spicy green chili and cilantro sauce.</div></div><div class="item-price">₹40</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Green Sauce (Side)', 40)">Add to Order</button></div></div>
+    </div>
+
+    <div id="chinese-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Chinese</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Noodles</div><div class="item-desc">Simple pan-tossed noodles with shredded cabbage and carrots.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Noodles', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Veg Hakka Noodles</div><div class="item-desc">Wok-tossed noodles in Hakka style sauce with fresh julienned vegetables.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Veg Hakka Noodles', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Schezwan Noodles</div><div class="item-desc">Spicy Schezwan sauce tossed with noodles and colorful bell peppers.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Schezwan Noodles', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Veg Manchuria</div><div class="item-desc">Deep-fried vegetable balls in a spicy, tangy Indo-Chinese gravy.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Veg Manchuria', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Chilli Paneer</div><div class="item-desc">Paneer cubes tossed in a hot and spicy chili garlic sauce.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Chilli Paneer', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Honey Chili Potato</div><div class="item-desc">Crispy fried potatoes tossed in a sticky, sweet and spicy honey chili sauce.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Honey Chili Potato', 150)">Add to Order</button></div></div>
+    </div>
+
+    <div id="fries-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Fries</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Plain</div><div class="item-desc">Classic salted golden potato fries.</div></div><div class="item-price">₹50</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Plain Fries', 50)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Peri-Peri</div><div class="item-desc">Fries seasoned with a vibrant, spicy African Peri-Peri blend.</div></div><div class="item-price">₹60</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Peri-Peri Fries', 60)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Peri-Peri Cheese</div><div class="item-desc">Peri-Peri seasoned fries topped with gooey melted cheese sauce.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Peri-Peri Cheese Fries', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Chilli Garlic</div><div class="item-desc">Fries tossed in a tangy and mildly spicy chili garlic sauce.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Chilli Garlic Fries', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Tandoori Cheese</div><div class="item-desc">Fries smothered in a creamy, smoky Tandoori cheese blend.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Tandoori Cheese Fries', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Achari Special</div><div class="item-desc">Fries seasoned with a tangy, pickled Achari flavor.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Achari Special Fries', 100)">Add to Order</button></div></div>
+    </div>
+
+    <div id="barbeque-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Barbeque</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Tandoori Chaap</div><div class="item-desc">Soya chaap marinated and roasted in classic Tandoori spices.</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Tandoori Chaap', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Achari Chaap</div><div class="item-desc">Chaap marinated in a tangy, spicy pickle (achar) masala.</div></div><div class="item-price">₹130</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Achari Chaap', 130)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Afghani Chaap</div><div class="item-desc">Chaap marinated in a mild, creamy sauce with white pepper.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Afghani Chaap', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Paneer Tikka</div><div class="item-desc">Marinated paneer cubes grilled to perfection.</div></div><div class="item-price">₹200</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Paneer Tikka (Barbeque)', 200)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Paneer Malai</div><div class="item-desc">Grilled paneer in a tender, creamy, non-spicy marinade.</div></div><div class="item-price">₹200</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Paneer Malai', 200)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Hariyali Tikka</div><div class="item-desc">Paneer marinated in a vibrant green mint and coriander sauce.</div></div><div class="item-price">₹220</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Hariyali Tikka', 220)">Add to Order</button></div></div>
+    </div>
+
+    <div id="momos-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Momos</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Veg</div><div class="item-desc">Steamed or fried dumplings filled with finely chopped vegetables.</div></div><div class="item-price">₹60</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Veg Momos', 60)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Paneer</div><div class="item-desc">Dumplings stuffed with spiced, crumbled paneer filling.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Paneer Momos', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Cheese Corn</div><div class="item-desc">A delicious filling of sweet corn and gooey melted cheese.</div></div><div class="item-price">₹90</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Cheese Corn Momos', 90)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Kurkure</div><div class="item-desc">Momos deep-fried in a crispy, crunchy layer (like Kurkure chips).</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Kurkure Momos', 120)">Add to Order</button></div></div>
+    </div>
+
+    <div id="maggi-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Maggi</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Plain</div><div class="item-desc">Just the classic Maggi noodles prepared perfectly.</div></div><div class="item-price">₹50</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Plain Maggi', 50)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Vegetable</div><div class="item-desc">Maggi cooked with finely chopped, fresh garden vegetables.</div></div><div class="item-price">₹70</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Vegetable Maggi', 70)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Cheese</div><div class="item-desc">Extra gooey Maggi topped with generous melted cheese.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Cheese Maggi', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Veg Cheese</div><div class="item-desc">Maggi loaded with vegetables and a layer of creamy cheese.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Veg Cheese Maggi', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Tandoori Cheese</div><div class="item-desc">A smoky, cheesy Maggi infusion with Tandoori spices.</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Tandoori Cheese Maggi', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Corn Paneer</div><div class="item-desc">Maggi cooked with sweet corn kernels and soft crumbled paneer.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Corn Paneer Maggi', 150)">Add to Order</button></div></div>
+    </div>
+
+    <div id="tea-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Tea</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Ginger</div><div class="item-desc">Warming milk tea infused with fresh ginger.</div></div><div class="item-price">₹15</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Ginger Tea', 15)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Elaichi</div><div class="item-desc">Aromatic tea infused with green cardamom (elaichi).</div></div><div class="item-price">₹15</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Elaichi Tea', 15)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Masala</div><div class="item-desc">Strong tea blended with a traditional mix of spices.</div></div><div class="item-price">₹20</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Masala Tea', 20)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Rose</div><div class="item-desc">Soothing tea with a delicate rose essence.</div></div><div class="item-price">₹20</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Rose Tea', 20)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Saffron</div><div class="item-desc">Premium tea flavored with exotic saffron strands.</div></div><div class="item-price">₹30</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Saffron Tea', 30)">Add to Order</button></div></div>
+    </div>
+
+    <div id="shakes-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Shakes</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Chocolate</div><div class="item-desc">Rich, creamy chocolate blended into a perfect shake.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Chocolate Shake', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Banana</div><div class="item-desc">Healthy and filling shake made with fresh bananas.</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Banana Shake', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Mango</div><div class="item-desc">Made with fresh, sweet mango pulp. (Seasonal availability may apply)</div></div><div class="item-price">₹130</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Mango Shake', 130)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Oreo</div><div class="item-desc">A blend of vanilla ice cream, milk, and crushed Oreo cookies.</div></div><div class="item-price">₹130</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Oreo Shake', 130)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">KittKat</div><div class="item-desc">Smooth shake blended with crunchy KittKat chocolate bars.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('KittKat Shake', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Strawberry</div><div class="item-desc">Sweet and tangy shake made with strawberry crush.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Strawberry Shake', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Butterscotch</div><div class="item-desc">Caramel and butterscotch flavored shake with crunchy praline bits.</div></div><div class="item-price">₹170</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Butterscotch Shake', 170)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Dry Fruit</div><div class="item-desc">A luxury shake blended with almonds, cashews, and raisins.</div></div><div class="item-price">₹200</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Dry Fruit Shake', 200)">Add to Order</button></div></div>
+    </div>
+
+    <div id="dch_specials-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">DCH Specials</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Waffles</div><div class="item-desc">Crispy golden waffle served with maple syrup and whipped cream.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Waffles', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Nutella</div><div class="item-desc">Side order of the classic hazelnut chocolate spread.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Nutella', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Pancake</div><div class="item-desc">Fluffy pancakes stacked and served with butter and syrup.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Pancake', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Brownie</div><div class="item-desc">Warm, rich, fudgy chocolate brownie (perfect with coffee!).</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Brownie', 80)">Add to Order</button></div></div>
+    </div>
+
+    <div id="coffee-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Hot Coffee</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Hot Coffee/Any Cookie</div><div class="item-desc">Standard brewed hot coffee served with your choice of a cookie.</div></div><div class="item-price">₹50</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Hot Coffee/Any Cookie', 50)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Black Coffee</div><div class="item-desc">Straight, strong filter coffee, served without milk or sugar.</div></div><div class="item-price">₹50</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Black Coffee', 50)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Irish Coffee</div><div class="item-desc">Hot coffee blended with Irish cream flavor and whipped cream.</div></div><div class="item-price">₹70</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Irish Coffee', 70)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Hazelnut</div><div class="item-desc">Rich hot coffee with sweet, nutty hazelnut syrup.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Hazelnut Hot Coffee', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Hot Chocolate</div><div class="item-desc">Warm, comforting chocolate milk drink topped with foam.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Hot Chocolate', 100)">Add to Order</button></div></div>
+    </div>
+
+    <div id="cold_coffee-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Cold Coffee</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Plain</div><div class="item-desc">Classic chilled coffee blended with milk and sugar.</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Plain Cold Coffee', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Berry Bold</div><div class="item-desc">Cold coffee with a fruity twist of mixed berries.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Berry Bold', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Chocolate</div><div class="item-desc">Icy cold coffee with chocolate syrup and a creamy texture.</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Chocolate Cold Coffee', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Irish</div><div class="item-desc">Chilled coffee with Irish cream flavoring, non-alcoholic.</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Irish Cold Coffee', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Hazelnut</div><div class="item-desc">Chilled coffee blended with hazelnut syrup.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Hazelnut Cold Coffee', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Hot Chocolate</div><div class="item-desc">Cold version of the Hot Chocolate drink (creamy and chilled).</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Cold Hot Chocolate', 100)">Add to Order</button></div></div>
+    </div>
+    
+    <div id="mocktails-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Mocktails</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Screwdriver</div><div class="item-desc">Classic citrus refresher (Orange juice and soda).</div></div><div class="item-price">₹80</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Screwdriver', 80)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Classic Mojito</div><div class="item-desc">Fresh lime juice, mint leaves, and sugar muddled with soda.</div></div><div class="item-price">₹90</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Classic Mojito', 90)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Blue Lagoon</div><div class="item-desc">A refreshing blend of blue curacao syrup, lime, and soda.</div></div><div class="item-price">₹100</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Blue Lagoon', 100)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Kiwi & Mint</div><div class="item-desc">A vibrant mocktail featuring kiwi fruit and fresh mint.</div></div><div class="item-price">₹110</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Kiwi & Mint', 110)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Watermelon</div><div class="item-desc">Cooling drink made with fresh watermelon juice and mint.</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Watermelon Mocktail', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Spicy Pineapple</div><div class="item-desc">A blend of pineapple juice with a dash of chili powder for a kick.</div></div><div class="item-price">₹120</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Spicy Pineapple', 120)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Pink Russian</div><div class="item-desc">A creamy, sweet mix of cranberry juice and vanilla/almond syrup.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Pink Russian', 150)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Black Russian</div><div class="item-desc">Cola mixed with a coffee/caramel flavor and ice.</div></div><div class="item-price">₹150</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Black Russian', 150)">Add to Order</button></div></div>
+    </div>
+
+    <div id="shots-menu" class="menu-item-list hidden">
+        <h3 class="menu-item-list-title">Shots</h3>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Kiwii</div><div class="item-desc">A small, intense burst of fresh kiwi flavor.</div></div><div class="item-price">₹30</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Kiwii Shot', 30)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Chilli Guava</div><div class="item-desc">Guava juice with a sharp, spicy kick of chili.</div></div><div class="item-price">₹40</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Chilli Guava Shot', 40)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Rose Blossom</div><div class="item-desc">A sweet, floral shooter flavored with rose syrup.</div></div><div class="item-price">₹50</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Rose Blossom Shot', 50)">Add to Order</button></div></div>
+        <div class="menu-item-card"><div class="item-details"><div class="item-name">Kesar</div><div class="item-desc">Rich saffron (kesar) and milk essence shot.</div></div><div class="item-price">₹60</div><div class="item-action"><button class="add-to-order-button" onclick="addToOrder('Kesar Shot', 60)">Add to Order</button></div></div>
+    </div>
+
+  </main>
+</div>
+
+<div id="cart-modal" class="modal-overlay">
+    <div class="cart-modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">🛒 Your Order Summary</h3>
+            <button class="close-btn" onclick="closeModal()">×</button>
+        </div>
+        <div id="modal-content-area">
+            
+            <div id="empty-cart-display" class="empty-cart-display">
+                <span class="empty-cart-icon">☕</span>
+                <span class="empty-cart-text">Your cart is feeling empty! Add some treats.</span>
+            </div>
+            
+            <ul id="cart-items-list">
+                </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="checkout-btn" onclick="closeModal()">Continue Browsing</button>
+        </div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
